@@ -28,3 +28,16 @@ Thermostat.prototype.up = function (number) {
 Thermostat.prototype.down = function (number) {
   this.temperature = Math.max(this.min(), this.temperature - number);
 };
+Thermostat.prototype.reset = function () {
+  this.temperature = INIT_TEMP;
+};
+
+Thermostat.prototype.energyUsage = function () {
+  if (this.temperature < 18) {
+    return 'low-usage';
+  } else if (this.temperature > 25) {
+    return 'high-usage';
+  } else {
+    return 'medium-usage';
+  };
+};
