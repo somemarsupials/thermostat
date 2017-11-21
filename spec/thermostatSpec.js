@@ -75,14 +75,17 @@ describe('Thermostat', function() {
       expect(thermostat.temperature).toEqual(20);
     });
   });
+
   describe ('#energyUsage', function(){
     it('should return low-usage when bellow 18', function() {
       thermostat.down(3);
       expect(thermostat.energyUsage()).toEqual('low-usage');
     });
+
     it('should return medium-usage when between 18 to 25', function() {
       expect(thermostat.energyUsage()).toEqual('medium-usage');
     });
+
     it('should return high-usage when above', function() {
       thermostat.powersaving = false;
       thermostat.up(6);
